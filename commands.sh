@@ -4,7 +4,7 @@
 nslookup google.com
 
 # Find the Ruter IP address
-curl ininfo.io
+curl ipinfo.io
 
 # how to find private ip of host machine?
 ifconfig
@@ -91,6 +91,14 @@ apt install mysql-server
 
 #? port 80 and 3306 ar active now
 
+# Allowe to external service
+sudo ufw enable
+sudo ufw allow 80/tcp
+sudo ufw allow 3306/tcp
+sudo ufw reload
+sudo ufw restart
+
+
 # download any file or software using terminal
 curl https://www.tooplate.com/zip-templates/2136_kool_form_pack.zip
 
@@ -107,10 +115,25 @@ apt install nginx
 apt install mysql-server
 
 # - replace default nginx page with an index.html page containing your name and access it from web browser
-# Create a index.html and replace the default index.html page with it
-# sudo cp index.html /usr/share/nginx/html/
-# # Bounce the nginx service
-# systemctl restart nginx
+# Create a index.html at /var/www/html/index.html
+cd /var/www/html/
+vim index.html
+# Add the content to the index.html file and then save
+
+# Restart nginx
+systemctl restart nginx
+
+# change the hostname
+vim /etc/hosts
+# Place the VM IP and the domain name like below
+# 192.168.33.98 shamim.com
+
+# Then change the hostname in the host machine as well.
+# the host file location is C:\Windows\System32\drivers\etc
+
+####################################################################################################
+# ? Thats all
+
 
 
 
